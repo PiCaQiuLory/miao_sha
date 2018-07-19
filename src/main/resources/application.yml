@@ -1,0 +1,38 @@
+#thymeleaf
+spring:
+  thymeleaf:
+    cache: false # Whether to enable template caching:
+    encoding: UTF-8 # Template files encoding:
+    mode: HTML # Template mode to be applied to templates:  See also Thymeleaf's TemplateMode enum:
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true
+    servlet:
+      content-type: text/html
+  datasource:
+    url: jdbc:mysql://localhost:3306/miaosha?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: cuoai1995
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 2
+    initialSize: 3
+    maxWait: 60000
+    minIdle: 5
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+#mybatis
+mybatis:
+  type-aliases-package: com.qinker.miaosha.model
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+  mapper-locations: classpath:com/qinker/miaosha/dao/*.xml
+
